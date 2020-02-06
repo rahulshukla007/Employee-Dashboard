@@ -1,0 +1,18 @@
+{% extends 'crudapp/base.html' %}
+
+{% block title %} Employee Form {% endblock title %}
+
+{% block content %}
+<div class="container">
+  <h2>Employee form</h2>
+  <form action="" method="post" autocomplete="off">
+      {% csrf_token %}
+      Full Name:{{form.fullname}}<br><br>
+      Emp Code:{{form.emp_code}}<br><br>
+      Mobile:---->{{form.mobile}}<br><br>
+      Position:{{form.position}}<br><br>
+      <button type="submit" class="btn btn-primary">Submit</button>
+
+  </form>
+</div>
+{% endblock content %}

@@ -1,0 +1,36 @@
+{% extends 'crudapp/base.html' %}
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" type="text/css" href="{% static 'crudapp/css/employee_list.css'%}">
+{% endblock css %}
+
+{% block content %}
+<h2>Employee Table</h2>
+<p>It is a Employee Table</p>
+
+<table style="width:100%">
+  <caption>END</caption>
+  <tr>
+    <th>Full Name</th>
+    <th>Emp Code</th>
+      <th>Mobile</th>
+    <th>Position</th>
+      <th>Button</th>
+  </tr>
+    {% for employee in employee_list %}
+  <tr>
+    <td>{{employee.fullname}} </td>
+    <td>{{employee.emp_code}} </td>
+    <td>{{employee.mobile}}</td>
+    <td>{{employee.position}}</td>
+      <td>
+          <a href="{% url 'employee_update' employee.id %}">EDIT</a>
+          <a href="{% url 'employee_delete' employee.id%}">Delete</a>
+      </td>
+  </tr>
+    {% endfor %}
+</table>
+
+
+{% endblock content %}
